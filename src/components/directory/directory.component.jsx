@@ -8,7 +8,7 @@ const a = [
         title: 'hats',
         imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
         id: 1,
-        linkUrl: 'shop/hats'
+        linkUrl: 'hats'
       },
       {
         title: 'jackets',
@@ -40,12 +40,16 @@ const a = [
       }
 
 ]
- const  Directory = ()=>
-(
+ const  Directory = ()=>{
+  return (
     <div className="directory-menu">
-        {a.map(({id,title,imageUrl,size})=>(<MenuItem key={id} title={title} imageUrl ={imageUrl} size={size}/>))}
+        {a.map(({id,...sectionData})=>(<MenuItem key={id} {...sectionData} />))}
     </div>
 )
+ }
 
 
+
+
+  
  export default Directory;
