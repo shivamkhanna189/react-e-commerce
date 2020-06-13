@@ -16,3 +16,9 @@ export const addItemsToCart = (cartItems , itemToBeAdd)=>{
     }
     
 }
+export const removeItemsFromCart = (cartItems, itemToBeRemoved)=>{
+   
+    cartItems = cartItems.map(item=>item.id == itemToBeRemoved.id ? {...item,quantity : item.quantity-1}: item)
+    return cartItems.filter(data=>data.quantity !=0) ;
+
+}
