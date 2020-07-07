@@ -33,7 +33,7 @@ class App extends React.Component {
   unsubscribeFromAuth = null ; 
   componentDidMount(){
 
-    const {setCurrentUser} = this.props ; 
+    const {setCurrentUser } = this.props ; 
      this.unsubscribeFromAuth =  auth.onAuthStateChanged(async userAuth=>{
 
           if(userAuth){
@@ -55,10 +55,12 @@ class App extends React.Component {
   }
 }
 const mapStateToProps =(state)=>{
-  return ({currentUser : selectCurrenUser(state)})
+  return ({
+    currentUser : selectCurrenUser(state),
+  })
 }
 const mapDispatchToProps = dispatch => ({
-    setCurrentUser : user => dispatch(setCurrentUser(user))
+    setCurrentUser : user => dispatch(setCurrentUser(user)),
 });
 
 
